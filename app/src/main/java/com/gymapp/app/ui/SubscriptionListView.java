@@ -28,6 +28,10 @@ public class SubscriptionListView {
     private final Pagination pagination = new Pagination();
 
     private int pageSize = 20;
+    private int currentPage = 1;
+    private final Label pageInfo = new Label();
+    private final Button prevBtn = new Button("◀ Précédent");
+    private final Button nextBtn = new Button("Suivant ▶");
 
     public SubscriptionListView() {
         root.setStyle("-fx-background-color: #f5f5f5;");
@@ -140,8 +144,17 @@ public class SubscriptionListView {
         
         root.setCenter(tableCard);
 
-        // Temporarily remove Pagination from layout to stabilize JavaFX rendering
-        // Manual navigation can be reintroduced later if needed
+        // Simple Prev/Next pagination controls
+        HBox pager = new HBox(10);
+        pager.setAlignment(Pos.CENTER_RIGHT);
+        pageInfo.getStyleClass().add("subheader");
+        prevBtn.getStyleClass().addAll("button", "btn-secondary");
+        nextBtn.getStyleClass().addAll("button", "btn-primary");
+        prevBtn.setOnAction(e -> { if (currentPage > 1) loadPage(currentPage - 1); });
+        nextBtn.setOnAction(e -> loadPage(currentPage + 1));
+        pager.getChildren().addAll(pageInfo, prevBtn, nextBtn);
+        BorderPane.setMargin(pager, new Insets(12, 0, 0, 0));
+        root.setBottom(pager);
     }
 
     private void loadPage(int page) {
@@ -152,9 +165,12 @@ public class SubscriptionListView {
         String q = searchField.getText();
         List<Subscription> list = service.listPaged(page, pageSize, status, q);
         rows.setAll(list);
-        int pageCount = list.size() < pageSize ? page : page + 1;
-        pagination.setCurrentPageIndex(Math.max(0, page - 1));
-        pagination.setPageCount(Math.max(1, pageCount));
+        currentPage = Math.max(1, page);
+        // Update simple pager UI
+        pageInfo.setText("Page " + currentPage);
+        prevBtn.setDisable(currentPage <= 1);
+        boolean hasNext = list != null && list.size() >= pageSize;
+        nextBtn.setDisable(!hasNext);
     }
 
     public Node getRoot() { return root; }
