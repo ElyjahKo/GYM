@@ -1,0 +1,145 @@
+:root {
+    /* Base colors */
+    -fx-font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* App background */
+.root {
+    -fx-background-color: #f5f7fb;
+}
+
+/* TabPane styling */
+.tab-pane *.tab-header-background {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 8 0;
+}
+.tab-pane .tab-header-area {
+    -fx-background-insets: 0 0 1 0;
+}
+.tab-pane .tab:selected {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #eef2f7);
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 8 18;
+}
+.tab-pane .tab-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Cards */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 16, 0, 0, 6);
+    -fx-padding: 20;
+}
+
+/* Headers */
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #1f2937;
+}
+.subheader {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b7280;
+}
+
+/* Buttons */
+.button {
+    -fx-background-radius: 8;
+    -fx-padding: 10 18;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+.btn-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+.btn-primary:hover { -fx-background-color: #1e40af; }
+
+.btn-success {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+}
+.btn-success:hover { -fx-background-color: #15803d; }
+
+.btn-danger {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+}
+.btn-danger:hover { -fx-background-color: #b91c1c; }
+
+.btn-secondary {
+    -fx-background-color: #6b7280;
+    -fx-text-fill: white;
+}
+.btn-secondary:hover { -fx-background-color: #4b5563; }
+
+.btn-warning {
+    -fx-background-color: #f59e0b;
+    -fx-text-fill: #111827;
+}
+.btn-warning:hover { -fx-background-color: #d97706; }
+
+/* Inputs */
+.text-field, .combo-box-base, .date-picker {
+    -fx-background-radius: 8;
+}
+
+/* Table */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+}
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 10 10 0 0;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-size: 36px;
+    -fx-border-width: 0 0 0 0;
+}
+.table-view .table-row-cell:hover {
+    -fx-background-color: #eef2ff;
+}
+.table-view .table-row-cell:odd {
+    -fx-background-color: #fafafa;
+}
+.table-view .table-cell {
+    -fx-padding: 10 12;
+}
+
+/* Badges */
+.badge {
+    -fx-background-radius: 999;
+    -fx-padding: 6 14;
+    -fx-font-weight: 800;
+    -fx-text-fill: white;
+}
+.badge-success { -fx-background-color: #16a34a; }
+.badge-danger { -fx-background-color: #dc2626; }
+.badge-info { -fx-background-color: #0ea5e9; }
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* App bar */
+.appbar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 12 18;
+    -fx-background-radius: 0 0 12 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 4);
+}
+.brand-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #111827;
+}
